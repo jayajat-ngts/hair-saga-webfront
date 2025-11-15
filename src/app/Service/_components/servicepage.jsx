@@ -71,27 +71,26 @@ export default function Servicepage() {
         },
     };
     return (
-        <main className="overflow-hidden">
-            <section className="relative text-center text-black">
-                {/* 🔹 Top White Section */}
-                <div className="bg-white py-6 sm:py-8"></div>
+        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
 
-                {/* 🔹 Middle Section with Background Image */}
+
+            {/* =================== HERO SECTION =================== */}
+
+            <section className="relative text-center text-black">
+
                 <div
-                    className="relative bg-cover bg-center flex items-center justify-center text-white"
-                    style={{
-                        backgroundImage: `url(${home.mainImg.src})`,
-                        minHeight: "50vh",
-                    }}
+                    className="
+             relative bg-cover bg-center flex items-center justify-center text-white 
+             h-[45vh] sm:h-[55vh] md:h-[65vh]
+           "
+                    style={{ backgroundImage: `url(${home.mainImg.src})` }}
                 >
-                    {/* 🔹 Black Overlay (optional slight dim for readability) */}
                     <div className="absolute inset-0 bg-black/30"></div>
 
-                    {/* 🔹 Bubble Animation Overlay */}
+                    {/* Bubbles */}
                     <div className="absolute inset-0 overflow-hidden">
                         {bubbles.map((b) => (
-                            <span
-                                key={b.id}
+                            <span key={b.id}
                                 className="bubble"
                                 style={{
                                     width: `${b.size}px`,
@@ -104,36 +103,31 @@ export default function Servicepage() {
                         ))}
                     </div>
 
-                    {/* 🔹 Text Block */}
+                    {/* ABOUT BOX */}
                     <div
                         className="
-        relative z-10 bg-white text-black 
-        py-6 sm:py-10 px-6 sm:px-10 md:px-16 
-        shadow-lg mx-4 sm:mx-auto 
-        before:content-[''] before:absolute before:-inset-3 
-        before:border before:border-dashed before:border-gray-400 before:-z-10
-        w-full max-w-xs sm:max-w-md md:max-w-lg
-      "
+               relative z-10 bg-white text-black 
+               py-6 sm:py-8 md:py-10 
+               px-5 sm:px-8 md:px-16 
+               shadow-lg 
+               w-[85%] sm:w-[70%] md:max-w-lg mx-auto
+               before:content-[''] before:absolute before:-inset-2 
+               before:border before:border-dashed before:border-gray-400 before:-z-10
+             "
                     >
-                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
                             Service
                         </h1>
 
-                        <div className="flex items-center justify-center text-sm sm:text-base md:text-lg flex-wrap">
-                            <a
-                                href="/"
-                                className="text-[#c7a05c] hover:underline font-medium"
-                            >
-                                Home
-                            </a>
-                            <FaAngleRight className="mx-1 sm:mx-2 text-gray-600" />
-                            <span className="text-gray-700 font-medium">Service</span>
+                        <div className="flex items-center justify-center text-sm sm:text-base md:text-lg">
+                            <a href="/" className="text-[#111] font-medium">Home</a>
+                            <FaAngleRight className="mx-2 text-gray-600" />
+                            <span className="text-[#111] font-medium">Service</span>
                         </div>
                     </div>
+
                 </div>
 
-                {/* 🔹 Bottom White Section */}
-                <div className="bg-white py-8 sm:py-10"></div>
             </section>
 
             <section className="py-10 bg-white">
@@ -160,7 +154,7 @@ export default function Servicepage() {
                                         className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500 ease-in-out"
                                     />
                                     <button
-                                        className="absolute bottom-0 right-2 translate-y-1/2 bg-[#C8A24A] text-white text-sm px-4 py-2 font-semibold shadow-md z-10 transition-all duration-300 hover:bg-white hover:text-[#C8A24A] border-1 border-[#C8A24A] border-dashed"
+                                        className="absolute bottom-0 right-2 translate-y-1/2 bg-[#111] text-white text-sm px-4 py-2 font-semibold shadow-md z-10 transition-all duration-300 hover:bg-white hover:text-[#111] border-1 border-[#1a1a1a] border-dashed"
                                     >
                                         Details
                                     </button>
@@ -175,11 +169,11 @@ export default function Servicepage() {
 
                     {/* 🔹 Pagination */}
                     <div className="flex justify-center mt-12 space-x-2">
-                        <button className="border-dashed border-1 border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white">←</button>
-                        <button className="border-dashed border-1 border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white">1</button>
-                        <button className="border-dashed border-1 border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white">2</button>
-                        <button className="border-dashed border-1 border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white">3</button>
-                        <button className="border-dashed border-1 border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white">→</button>
+                        <button className="border-dashed border-1 border-[#111] px-3 py-1 text-[#111] hover:bg-[#C8A24A] hover:text-white">←</button>
+                        <button className="border-dashed border-1 border-[#111] px-3 py-1 text-[#111] hover:bg-[#C8A24A] hover:text-white">1</button>
+                        <button className="border-dashed border-1 border-[#111] px-3 py-1 text-[#111] hover:bg-[#C8A24A] hover:text-white">2</button>
+                        <button className="border-dashed border-1 border-[#111] px-3 py-1 text-[#111] hover:bg-[#C8A24A] hover:text-white">3</button>
+                        <button className="border-dashed border-1 border-[#111] px-3 py-1 text-[#111] hover:bg-[#C8A24A] hover:text-white">→</button>
                     </div>
                 </div>
             </section>
