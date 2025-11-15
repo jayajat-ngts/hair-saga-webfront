@@ -46,71 +46,64 @@ export default function Blogpage() {
     };
 
     return (
-        <main className="overflow-hidden">
+        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+
+
             {/* =================== HERO SECTION =================== */}
-           <section className="relative text-center text-black">
-  {/* 🔹 Top White Section */}
-  <div className="bg-white py-6 sm:py-8"></div>
 
-  {/* 🔹 Middle Section with Background Image */}
-  <div
-    className="relative bg-cover bg-center flex items-center justify-center text-white"
-    style={{
-      backgroundImage: `url(${home.mainImg.src})`,
-      minHeight: "50vh",
-    }}
-  >
-    {/* 🔹 Black Overlay (optional slight dim for readability) */}
-    <div className="absolute inset-0 bg-black/30"></div>
+            <section className="relative text-center text-black">
 
-    {/* 🔹 Bubble Animation Overlay */}
-    <div className="absolute inset-0 overflow-hidden">
-      {bubbles.map((b) => (
-        <span
-          key={b.id}
-          className="bubble"
-          style={{
-            width: `${b.size}px`,
-            height: `${b.size}px`,
-            left: `${b.left}%`,
-            animationDuration: `${b.duration}s`,
-            animationDelay: `${b.delay}s`,
-          }}
-        ></span>
-      ))}
-    </div>
+                <div
+                    className="
+      relative bg-cover bg-center flex items-center justify-center text-white 
+      h-[45vh] sm:h-[55vh] md:h-[65vh]
+    "
+                    style={{ backgroundImage: `url(${home.mainImg.src})` }}
+                >
+                    <div className="absolute inset-0 bg-black/30"></div>
 
-    {/* 🔹 Text Block */}
-    <div
-      className="
+                    {/* Bubbles */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        {bubbles.map((b) => (
+                            <span key={b.id}
+                                className="bubble"
+                                style={{
+                                    width: `${b.size}px`,
+                                    height: `${b.size}px`,
+                                    left: `${b.left}%`,
+                                    animationDuration: `${b.duration}s`,
+                                    animationDelay: `${b.delay}s`,
+                                }}
+                            ></span>
+                        ))}
+                    </div>
+
+                    {/* ABOUT BOX */}
+                    <div
+                        className="
         relative z-10 bg-white text-black 
-        py-6 sm:py-10 px-6 sm:px-10 md:px-16 
-        shadow-lg mx-4 sm:mx-auto 
-        before:content-[''] before:absolute before:-inset-3 
+        py-6 sm:py-8 md:py-10 
+        px-5 sm:px-8 md:px-16 
+        shadow-lg 
+        w-[85%] sm:w-[70%] md:max-w-lg mx-auto
+        before:content-[''] before:absolute before:-inset-2 
         before:border before:border-dashed before:border-gray-400 before:-z-10
-        w-full max-w-xs sm:max-w-md md:max-w-lg
       "
-    >
-      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
-        Blog
-      </h1>
+                    >
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
+                            Blog
+                        </h1>
 
-      <div className="flex items-center justify-center text-sm sm:text-base md:text-lg flex-wrap">
-        <a
-          href="/"
-          className="text-[#c7a05c] hover:underline font-medium"
-        >
-          Home
-        </a>
-        <FaAngleRight className="mx-1 sm:mx-2 text-gray-600" />
-        <span className="text-gray-700 font-medium">Blog</span>
-      </div>
-    </div>
-  </div>
+                        <div className="flex items-center justify-center text-sm sm:text-base md:text-lg">
+                            <a href="/" className="text-[#111] font-medium">Home</a>
+                            <FaAngleRight className="mx-2 text-gray-600" />
+                            <span className="text-[#111] font-medium">Blog</span>
+                        </div>
+                    </div>
 
-  {/* 🔹 Bottom White Section */}
-  <div className="bg-white py-8 sm:py-10"></div>
-</section>
+                </div>
+
+            </section>
 
             <section className="py-10 bg-[#ffffff]">
                 < div className="container mx-auto px-10 lg:px-20 grid grid-cols-1 lg:grid-cols-[2.3fr_1fr] gap-8">
@@ -152,7 +145,7 @@ export default function Blogpage() {
                                 </div>
 
                                 {/* Read More Button */}
-                                <button className="absolute bottom-[-10px] right-4 bg-[#d6a354] hover:bg-white hover:text-[#d6a354] text-white px-5 py-3 text-md shadow-md transition-all">
+                                <button className="absolute bottom-[-10px] right-4 bg-[#1a1a1a] hover:bg-white hover:text-[#1a1a1a] text-white px-5 py-3 text-md shadow-md transition-all">
                                     Read More
                                 </button>
                             </motion.div>
@@ -167,35 +160,35 @@ export default function Blogpage() {
                         {/* 🔍 Search */}
                         <div className="bg-[#ffffff] border-2 border-dashed border-[#e6e6e6] p-8">
                             <h3 className="font-semibold text-gray-800  text-xl font-bold mb-3">Search</h3>
-                            <div className=" border-b border-dashed border-[#d6a354] mb-6"></div>
+                            <div className=" border-b border-dashed border-[#1a1a1a] mb-6"></div>
                             <div className="flex   ">
                                 <input
                                     type="text"
                                     placeholder="Search here..."
-                                    className="flex-1 px-3 py-4 outline-none bg-[#f5f5f5] border-b-2 border-solid border-[#d6a354] "
+                                    className="flex-1 px-3 py-4 outline-none bg-[#f5f5f5] border-b-2 border-solid border-[#1a1a1a] "
                                 />
-                                <button className="bg-[#d6a354] text-white px-4">🔍</button>
+                                <button className="bg-[#1a1a1a] text-white px-4">🔍</button>
                             </div>
                         </div>
 
                         {/* 📂 Categories */}
                         <div className="bg-[#ffffff] border-2 border-dashed border-[#e6e6e6] p-8 np-5 ">
                             <h3 className="font-bold text-xl text-[#2c2c2c] mb-3">Categories</h3>
-                            <div className=" border-b border-dashed border-[#d6a354] mb-6"></div>
+                            <div className=" border-b border-dashed border-[#1a1a1a] mb-6"></div>
                             <ul className="space-y-2 text-md text-[#463d36]">
-                                <li className="flex justify-between border-b pb-4">Blogging <span>(09)</span></li>
-                                <li className="flex justify-between border-b pb-4">Web Design <span>(13)</span></li>
-                                <li className="flex justify-between border-b pb-4">Web Development <span>(05)</span></li>
-                                <li className="flex justify-between border-b pb-4">Graphic Design <span>(10)</span></li>
-                                <li className="flex justify-between border-b pb-4">Theme Development <span>(12)</span></li>
-                                <li className="flex justify-between">Online Marketing <span>(06)</span></li>
+                                <li className="flex justify-between border-b pb-4">Trending Haircut <span>(09)</span></li>
+                                <li className="flex justify-between border-b pb-4">Face Claenup <span>(13)</span></li>
+                                <li className="flex justify-between border-b pb-4">Hydra Facial <span>(05)</span></li>
+                                <li className="flex justify-between border-b pb-4">Hair Spa <span>(10)</span></li>
+                                <li className="flex justify-between border-b pb-4">Hair Straightning <span>(12)</span></li>
+                                <li className="flex justify-between">Bridal Makeup<span>(06)</span></li>
                             </ul>
                         </div>
 
                         {/* 📰 Recent Posts */}
                         <div className="bg-[#ffffff] border-2 border-dashed border-[#e6e6e6] p-5">
                             <h3 className="font-bold text-xl text-[#2c2c2c]  mb-3">Recent Posts</h3>
-                            <div className=" border-b border-dashed border-[#d6a354] mb-6"></div>
+                            <div className=" border-b border-dashed border-[#1a1a1a] mb-6"></div>
                             <div className="space-y-4 ">
                                 {blogs.slice(0, 3).map((post) => (
                                     <div key={post.id} className="flex items-center gap-3 flex justify-between border-b pb-4">
@@ -212,12 +205,12 @@ export default function Blogpage() {
                         {/* 🏷️ Popular Tags */}
                         <div className="bg-[#ffffff] border-2 border-dashed border-[#e6e6e6] p-5 ">
                             <h3 className="font-bold text-xl text-[#2c2c2c] mb-3">Popular Tags</h3>
-                            <div className=" border-b border-dashed border-[#d6a354] mb-6"></div>
+                            <div className=" border-b border-dashed border-[#1a1a1a] mb-6"></div>
                             <div className="flex flex-wrap gap-2 mb-5">
-                                {["HTML", "CSS", "PHOTOSHOP", "JQUERY", "JAVASCRIPT", "PHP"].map((tag, i) => (
+                                {["Bridal Makeup", "Cleanup", "Hair Spa", "Hair Straightning", "Haircut", "Beardcut"].map((tag, i) => (
                                     <span
                                         key={i}
-                                        className="px-5 py-3 text-sm font-medium bg-[#dddddd] hover:bg-[#d6a354]  hover:text-white  cursor-pointer"
+                                        className="px-5 py-3 text-sm font-medium bg-[#dddddd] hover:bg-[#1a1a1a]  hover:text-white  cursor-pointer"
                                     >
                                         {tag}
                                     </span>
@@ -228,7 +221,7 @@ export default function Blogpage() {
                         {/* 📢 Ads */}
                         <div className="bg-white border-2 border-dashed border-[#e6e6e6] p-6">
                             <h3 className="font-bold text-xl text-[#2c2c2c] mb-3">Ads</h3>
-                            <div className="border-b border-dashed border-[#d6a354] mb-6"></div>
+                            <div className="border-b border-dashed border-[#1a1a1a] mb-6"></div>
 
                             <div className="relative w-full overflow-hidden">
                                 <Image
@@ -236,17 +229,14 @@ export default function Blogpage() {
                                     alt="ad"
                                     width={400}
                                     height={300}
-                                    className="
-                                                        object-cover w-full h-auto 
-                                                         md:w-full md:h-[550px] md:object-cover   /* 👈 iPad: make full width + taller image */
-                                                        lg:w-[400px] lg:h-auto lg:mx-auto       /* 👈 Desktop: revert to original centered size */
+                                    className="object-cover w-full h-auto md:w-full md:h-[550px] md:object-cover   /* 👈 iPad: make full width + taller image */lg:w-[400px] lg:h-auto lg:mx-auto       /* 👈 Desktop: revert to original centered size */
                                                           "
                                 />
 
                                 <div
                                     className="
                                                absolute bottom-4 left-6 right-6 
-                                                     bg-[#d6a354]/80 text-white text-sm text-center py-2 px-3
+                                                     bg-[#1a1a1a]/80 text-white text-sm text-center py-2 px-3
                                                           "
                                 >
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -262,7 +252,7 @@ export default function Blogpage() {
                 <div className="flex justify-start mt-12 pl-24 p-5 space-x-2">
 
                     {/* Left Arrow */}
-                    <button className="border-2 border-dashed border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white transition">
+                    <button className="border-2 border-dashed border-[#1a1a1a] px-3 py-1 text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition">
                         ←
                     </button>
 
@@ -270,14 +260,14 @@ export default function Blogpage() {
                     {[1, 2, 3].map((n) => (
                         <button
                             key={n}
-                            className="border-2 border-dashed border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white transition"
+                            className="border-2 border-dashed border-[#1a1a1a] px-3 py-1 text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition"
                         >
                             {n}
                         </button>
                     ))}
 
                     {/* Right Arrow */}
-                    <button className="border-2 border-dashed border-[#C8A24A] px-3 py-1 text-[#C8A24A] hover:bg-[#C8A24A] hover:text-white transition">
+                    <button className="border-2 border-dashed border-[#1a1a1a] px-3 py-1 text-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white transition">
                         →
                     </button>
                 </div>

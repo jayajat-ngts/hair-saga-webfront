@@ -41,6 +41,16 @@ import blog10 from '../../../public/assets/images/blog10.jpg';
 import blog11 from '../../../public/assets/images/blog11.jpg';
 import blogdetail1 from '../../../public/assets/images/blogdetail1.jpg';
 import hairlogo from '../../../public/assets/images/hairlogo.png';
+import hair from '../../../public/assets/images/hair.png';
+import hairsagalogo from '../../../public/assets/images/hairsagalogo.png';
+import hairspa from '../../../public/assets/images/hairspa.jpg';
+import facecleanup from '../../../public/assets/images/facecleanup.jpg';
+import hairstraight from '../../../public/assets/images/hairstraight.jpg';
+import backgroundimage1 from '../../../public/assets/images/backgroundimage1.png';
+import nailart from '../../../public/assets/images/nailart.jpg';
+import menicure from '../../../public/assets/images/menicure.jpg';
+import makeup from '../../../public/assets/images/makeup.jpg';
+import pedicure from '../../../public/assets/images/pedicure.jpg';
 export const home = {
     mainImg: mainbg
 , rightImg: rightimage
@@ -65,6 +75,15 @@ export const home = {
 ,calendarImg1:calendar1
 ,calendarImg2:calendar2
 ,calendarImg3:calendar3
+,hairImg:hair
+,hairSpa:hairspa
+,faceCleanUp:facecleanup
+,hairStraight:hairstraight
+,backgroundImage1:backgroundimage1
+,nailArt:nailart
+,menicure:menicure
+,makeup:makeup
+,pedicure:pedicure
 
 }
 export const about = {
@@ -93,4 +112,5 @@ export const blog = {
 }
 export const navbar = {
     hairLogo: hairlogo
+, hairsagaLogo: hairsagalogo
 }

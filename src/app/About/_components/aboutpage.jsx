@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState, useEffect } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { home } from "@/app/_Components/images";
-import {about} from "@/app/_Components/images";
+import { about } from "@/app/_Components/images";
 const experts = [
     {
         name: "Tom Cooper",
@@ -119,76 +119,72 @@ export default function Aboutpage() {
         };
     }, []);
     return (
-        <main className="overflow-hidden">
+        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+
+
             {/* =================== HERO SECTION =================== */}
+
             <section className="relative text-center text-black">
-  {/* 🔹 Top White Section */}
-  <div className="bg-white py-6 sm:py-8"></div>
 
-  {/* 🔹 Middle Section with Background Image */}
-  <div
-    className="relative bg-cover bg-center flex items-center justify-center text-white"
-    style={{
-      backgroundImage: `url(${home.mainImg.src})`,
-      minHeight: "50vh",
-    }}
-  >
-    {/* 🔹 Black Overlay (optional slight dim for readability) */}
-    <div className="absolute inset-0 bg-black/30"></div>
+                <div
+                    className="
+      relative bg-cover bg-center flex items-center justify-center text-white 
+      h-[45vh] sm:h-[55vh] md:h-[65vh]
+    "
+                    style={{ backgroundImage: `url(${home.mainImg.src})` }}
+                >
+                    <div className="absolute inset-0 bg-black/30"></div>
 
-    {/* 🔹 Bubble Animation Overlay */}
-    <div className="absolute inset-0 overflow-hidden">
-      {bubbles.map((b) => (
-        <span
-          key={b.id}
-          className="bubble"
-          style={{
-            width: `${b.size}px`,
-            height: `${b.size}px`,
-            left: `${b.left}%`,
-            animationDuration: `${b.duration}s`,
-            animationDelay: `${b.delay}s`,
-          }}
-        ></span>
-      ))}
-    </div>
+                    {/* Bubbles */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        {bubbles.map((b) => (
+                            <span key={b.id}
+                                className="bubble"
+                                style={{
+                                    width: `${b.size}px`,
+                                    height: `${b.size}px`,
+                                    left: `${b.left}%`,
+                                    animationDuration: `${b.duration}s`,
+                                    animationDelay: `${b.delay}s`,
+                                }}
+                            ></span>
+                        ))}
+                    </div>
 
-    {/* 🔹 Text Block */}
-    <div
-      className="
+                    {/* ABOUT BOX */}
+                    <div
+                        className="
         relative z-10 bg-white text-black 
-        py-6 sm:py-10 px-6 sm:px-10 md:px-16 
-        shadow-lg mx-4 sm:mx-auto 
-        before:content-[''] before:absolute before:-inset-3 
+        py-6 sm:py-8 md:py-10 
+        px-5 sm:px-8 md:px-16 
+        shadow-lg 
+        w-[85%] sm:w-[70%] md:max-w-lg mx-auto
+        before:content-[''] before:absolute before:-inset-2 
         before:border before:border-dashed before:border-gray-400 before:-z-10
-        w-full max-w-xs sm:max-w-md md:max-w-lg
       "
-    >
-      <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4">
-        About Us
-      </h1>
+                    >
+                        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
+                            About Us
+                        </h1>
 
-      <div className="flex items-center justify-center text-sm sm:text-base md:text-lg flex-wrap">
-        <a
-          href="/"
-          className="text-[#c7a05c] hover:underline font-medium"
-        >
-          Home
-        </a>
-        <FaAngleRight className="mx-1 sm:mx-2 text-gray-600" />
-        <span className="text-gray-700 font-medium">About Us</span>
-      </div>
-    </div>
-  </div>
+                        <div className="flex items-center justify-center text-sm sm:text-base md:text-lg">
+                            <a href="/" className="text-[#111] font-medium">Home</a>
+                            <FaAngleRight className="mx-2 text-gray-600" />
+                            <span className="text-[#111] font-medium">About Us</span>
+                        </div>
+                    </div>
 
-  {/* 🔹 Bottom White Section */}
-  <div className="bg-white py-8 sm:py-10"></div>
-</section>
+                </div>
+
+            </section>
+
+
 
 
             {/* =================== ABOUT CONTENT SECTION =================== */}
             <section className="relative bg-white py-16 px-6 md:px-16">
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2
+                  gap-10 items-center">
                     {/* 🔹 Left Side - Image Section */}
                     <div className="relative">
                         <Image
@@ -198,12 +194,12 @@ export default function Aboutpage() {
                         />
 
                         {/* 🔹 Play Button */}
-                        <button className="absolute bottom-6 left-6 bg-[#c7a05c] text-white p-5 rounded-full border-4 border-white shadow-lg hover:scale-105 transition">
+                        <button className="absolute bottom-6 left-6 bg-[#111] text-white p-5 rounded-full border-4 border-white shadow-lg hover:scale-105 transition">
                             <FaPlay size={20} />
                         </button>
 
                         {/* 🔹 Circular Floating Image */}
-                        <div className="absolute -top-5 right-15 w-50 h-50 rounded-full border-8 border-white overflow-hidden shadow-lg transition-transform duration-500 hover:scale-120">
+                        <div className="absolute -top-5 right-15 w-50 h-50  sm:-top-5 sm:right-15 sm:w-48 sm:h-48 sm:border-8 rounded-full border-8 border-white overflow-hidden shadow-lg transition-transform duration-500 hover:scale-120">
                             <Image
                                 src={home.wowHair}
                                 alt="Barber"
@@ -214,7 +210,7 @@ export default function Aboutpage() {
                         {/* 🔹 Vertical Text */}
 
                     </div>
-                    <div className="absolute right-180 bottom-1/3 -translate-y-1/2 rotate-[-90deg] text-[#c7a05c] font-bold text-lg tracking-wide">
+                    <div className="absolute right-180 bottom-1/3 -translate-y-1/2 rotate-[-90deg] text-[#111] font-bold text-lg tracking-wide">
                         More Than 12 Years Of Experienced
                     </div>
 
@@ -222,7 +218,7 @@ export default function Aboutpage() {
                     <div className="text-left">
                         <div className="relative">
                             <h2 className="text-4xl md:text-5xl font-extrabold text-[#111] relative z-10">
-                                About <span className="text-[#c7a05c]">WOWHAIR</span>
+                                About <span className="text-[#111]">HAIRSAGA</span>
                             </h2>
                             {/* Faint Background Text */}
                             <span className="absolute text-[100px] md:text-[140px] font-extrabold text-[#f4f4f4] left-0 top-[-40px] select-none leading-none tracking-tight z-0">
@@ -246,7 +242,7 @@ export default function Aboutpage() {
                         </p>
 
                         {/* Highlight Box */}
-                        <div className="bg-gray-100 p-4 border-l-4 border-[#c7a05c] mb-8">
+                        <div className="bg-gray-100 p-4 border-l-4 border-[#111] mb-8">
                             <h3 className="text-lg font-bold text-gray-900">
                                 Dolor Sit, Amet Consectetur Adipisicing Elit. Nesciunt Maxime
                                 Non Cupiditate, Laboriosam Quibusdam Architecto.
@@ -280,20 +276,20 @@ export default function Aboutpage() {
                 </div>
             </section>
             {/* ===== TestimonialSection (Added) ===== */}
-            < section className="relative bg-[#f5f5f5] pt-36 pb-0 overflow-hidden" >
+            <section className="relative bg-[#1a1a1a] pt-36 pb-0 overflow-hidden">
                 {/* Background faint text */}
-                < h2 className="absolute text-[8rem] md:text-[12rem] font-extrabold text-gray-200 opacity-30 top-10 left-8 md:left-1/2 transform md:-translate-x-1/2 select-none tracking-tight" >
+                {/* <h2 className="absolute text-[8rem] md:text-[12rem] font-extrabold text-gray-200 opacity-30 top-10 left-8 md:left-1/2 transform md:-translate-x-1/2 select-none tracking-tight">
                     TESTIMONIAL
-                </h2 >
+                </h2> */}
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-start md:items-start gap-8 md:gap-4">
+                <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-start gap-8 lg:gap-4">
                     {/* Left Side - Text and Slider */}
-                    <div className="w-full md:w-1/2 space-y-6 mt-10 md:mt-0">
-                        <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+                    <div className="w-full lg:w-1/2 space-y-6 mt-10 lg:mt-0 order-1">
+                        <h3 className="text-4xl md:text-5xl font-extrabold text-[#ffffff]">
                             What People Says
                         </h3>
 
-                        <p className="text-gray-600 leading-relaxed max-w-md">
+                        <p className="text-[#ffffff] leading-relaxed max-w-md">
                             Deleniti dicta aspernatur expedita. Hic, harum. Repellat at,
                             excepturi placeat atque hic, beatae alias saepe recusandae numquam
                             totam laborum.
@@ -332,7 +328,7 @@ export default function Aboutpage() {
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 1.2, ease: "easeOut" }}
                         viewport={{ once: true }}
-                        className="w-full md:w-1/2 flex justify-end items-end md:mt-16 md:mb-0 pr-6"
+                        className="w-full lg:w-1/2 flex justify-end items-end order-2 mt-10 lg:mt-16 lg:mb-0 pr-6"
                     >
                         <Image
                             src={home.testimonialBarber}
@@ -344,7 +340,7 @@ export default function Aboutpage() {
                         />
                     </motion.div>
                 </div>
-            </section >
+            </section>
             {/* ===== Our experts ===== */}
             <section className="bg-white py-20 px-6 md:px-16 text-center">
                 {/* Section Heading */}
@@ -363,13 +359,13 @@ export default function Aboutpage() {
                 </div>
 
                 {/* Team Members Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                     {experts.map((expert, index) => (
                         <div
                             key={index}
                             className="group bg-white border border-gray-200 shadow-md hover:shadow-lg transition relative"
                         >
-                            {/* 🔹 Image Wrapper (only for zoom effect) */}
+                            {/* 🔹 Image Wrapper (Zoom effect) */}
                             <div className="relative">
                                 <div className="overflow-hidden">
                                     <Image
@@ -379,11 +375,11 @@ export default function Aboutpage() {
                                     />
                                 </div>
 
-                                {/* 🔹 Social Icons – Half inside, Half outside (no clipping now) */}
-                                <div
+                                {/* 🔹 Social Icons – Half inside, Half outside */}
+                                {/* <div
                                     className="absolute top-1/2 -translate-y-1/2 right-[-25px] flex flex-col justify-center 
-                                    px-3 py-4 space-y-4 bg-[#c7a05c] border-1 border-white border-dashed shadow-lg
-                                     transition-all duration-500 group-hover:translate-y-[10%] z-20"
+              px-3 py-4 space-y-4 bg-[#c7a05c] border-1 border-white border-dashed shadow-lg
+              transition-all duration-500 group-hover:translate-y-[10%] z-20"
                                 >
                                     <a href="#" className="text-black hover:text-white">
                                         <FaFacebookF />
@@ -397,7 +393,7 @@ export default function Aboutpage() {
                                     <a href="#" className="text-black hover:text-white">
                                         <FaLinkedinIn />
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
 
                             {/* 🔹 Name & Role */}
@@ -408,8 +404,8 @@ export default function Aboutpage() {
                         </div>
                     ))}
                 </div>
-
             </section>
+
 
         </main>
 

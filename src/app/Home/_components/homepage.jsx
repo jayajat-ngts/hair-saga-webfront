@@ -9,7 +9,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CalendarDays, Tag } from "lucide-react";
 import { home } from "@/app/_Components/images";
-console.log(home.trendingHaircut);
+import Link from "next/link";
 const testimonials = [
     {
         id: 1,
@@ -47,7 +47,7 @@ const blogs = [
     },
     {
         id: 2,
-        img: home.calendarImg2,
+        img: home.normalHaircut,
         title: "Let's See Trending Haircuts In 2022 Only For Men",
         category: "Haircut",
         date: "01 Aug, 2022",
@@ -87,9 +87,9 @@ export default function HomePage() {
         { id: 1, category: "Normal Haircut", img: home.wowHair },
         { id: 2, category: "Hair Pump", img: home.hairPump },
         { id: 3, category: "Hair Clean", img: home.galleryImg1 },
-        { id: 4, category: "Normal Haircut", img: home.footerImg1 },
+        { id: 4, category: "Normal Haircut", img: home.hairStraight },
         { id: 5, category: "Hair Clean", img: home.galleryImg2 },
-        { id: 6, category: "Hair Pump", img: home.galleryImg3},
+        { id: 6, category: "Hair Pump", img: home.nailArt },
     ];
 
     const filteredItems =
@@ -154,37 +154,47 @@ export default function HomePage() {
                                 <div className="w-px flex-1 border-l-2 border-dotted border-white"></div>
 
                                 <div className="flex flex-col space-y-6 my-6">
-                                    <a href="#" className="text-[#c7a05c] hover:text-white transition-transform duration-300 hover:scale-110">
+                                    <a href="#"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#ffffff] hover:text-white transition-transform duration-300 hover:scale-110">
                                         <FaFacebookF size={20} />
                                     </a>
-                                    <a href="#" className="text-[#c7a05c] hover:text-white transition-transform duration-300 hover:scale-110">
+                                    {/* <a href="#" className="text-[#ffffff] hover:text-white transition-transform duration-300 hover:scale-110">
                                         <FaTwitter size={20} />
-                                    </a>
-                                    <a href="#" className="text-[#c7a05c] hover:text-white transition-transform duration-300 hover:scale-110">
+                                    </a> */}
+                                    <a href="https://www.instagram.com/hairsaga.india?igsh=OTFnYnJpOG1xdG9u"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#ffffff] hover:text-white transition-transform duration-300 hover:scale-110">
                                         <FaInstagram size={20} />
                                     </a>
-                                    <a href="#" className="text-[#c7a05c] hover:text-white transition-transform duration-300 hover:scale-110">
+                                    {/* <a href="#" className="text-[#ffffff] hover:text-white transition-transform duration-300 hover:scale-110">
                                         <FaLinkedinIn size={20} />
-                                    </a>
+                                    </a> */}
                                 </div>
 
                                 <div className="w-px flex-1 border-l-2 border-dotted border-white"></div>
                             </div>
 
                             {/* Headline */}
-                            <h1 className="outline-text text-4xl sm:text-5xl lg:text-7xl leading-tight whitespace-nowrap ">
-                                Smart Haircut
-                                <br /> For Mens
+                            <h1 className="outline-text text-4xl sm:text-5xl lg:text-6xl leading-tight whitespace-nowrap ">
+                                Every Hair Has
+                                <br />A Story Begin
+                                <br />Yours At
+                                <br />Hair Saga
                             </h1>
-                            <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed tracking-tight w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
+                            {/* <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed tracking-tight w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
                                 Quisquam repellat itaque quod molestiae modi, minus, omnis laudantium aspernatur
                                 non, nobis expedita deleniti, assumenda nulla odio?
-                            </p>
+                            </p> */}
 
 
-                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-black font-semibold px-10 py-3 transition">
+                            <Link
+                                href={"/contact"}
+                                className="bg-[#ffffff] hover:bg-[#ffffff] text-black font-semibold px-10 py-3 transition">
                                 Contact Us
-                            </button>
+                            </Link>
                         </div>
 
                         {/* Right Image */}
@@ -197,6 +207,13 @@ export default function HomePage() {
                                     className=" object-center lg:object-right"
                                     priority
                                 />
+                                {/* <Image
+                                    src={home.backgroundImage1}
+                                    alt="Smart Haircut"
+                                    fill
+                                    className=" object-center lg:object-right"
+                                    priority
+                                /> */}
                             </div>
                         </div>
                     </div>
@@ -206,9 +223,9 @@ export default function HomePage() {
                 {/* ===== Why Choose Us Section ===== */}
                 < section className="bg-[#ffffff] py-24 relative overflow-hidden" >
                     {/* Background faint text */}
-                    < h2 className="absolute text-[160px] md:text-[220px] font-extrabold text-[#f5f5f5] left-1/2 -translate-x-1/2 top-10 select-none pointer-events-none leading-none tracking-tight z-0" >
+                    {/* < h2 className="absolute text-[160px] md:text-[220px] font-extrabold text-[#f5f5f5] left-1/2 -translate-x-1/2 top-10 select-none pointer-events-none leading-none tracking-tight z-0" >
                         FEATURES
-                    </h2 >
+                    </h2 > */}
 
                     {/* Content */}
                     < div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-center" >
@@ -246,9 +263,11 @@ export default function HomePage() {
 
                                     {/* Floating Button (Right side, half inside-outside) */}
                                     <div className="absolute -right-6 translate-y-1/2 bottom-0">
-                                        <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
+                                        <Link
+                                            href="/booking"
+                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
                                             Book Now
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </motion.div>
@@ -269,9 +288,11 @@ export default function HomePage() {
                                         className="w-full h-[250px] object-cover"
                                     />
                                     <div className="absolute -right-6 translate-y-1/2 bottom-0">
-                                        <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3  transition">
+                                        <Link
+                                            href="/booking"
+                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3  transition">
                                             Book Now
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </motion.div >
@@ -283,17 +304,19 @@ export default function HomePage() {
                                 animate={{ scale: 1, opacity: 1 }}
                                 transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
                             >
-                                <h4 className="text-2xl font-bold mb-4 text-gray-900 px-4 pt-4">Face Wash</h4>
+                                <h4 className="text-2xl font-bold mb-4 text-gray-900 px-4 pt-4">Hair Spa</h4>
                                 <div className="relative">
                                     <Image
-                                        src={home.faceWash}
+                                        src={home.hairSpa}
                                         alt="Face Wash"
                                         className="w-full h-[250px] object-cover"
                                     />
                                     <div className="absolute -right-6 translate-y-1/2 bottom-0">
-                                        <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3  transition">
+                                        <Link
+                                            href="/booking"
+                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3  transition">
                                             Book Now
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </motion.div >
@@ -301,7 +324,7 @@ export default function HomePage() {
                     </div >
                 </section >
                 {/* ===== About WOWHAIR Section ===== */}
-                <section className="bg-[#ffffff] text-gray-800 py-24 relative">
+                <section className="bg-[#1a1a1a] text-gray-800 py-24 relative">
                     <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center gap-12">
                         {/* ✅ On mobile + iPad → image on top, text below 
                        ✅ On desktop → image left, text right */}
@@ -315,7 +338,7 @@ export default function HomePage() {
                             className="relative w-full lg:w-1/2"
                         >
                             <Image
-                                src={home.wowHair}
+                                src={home.hairImg}
                                 alt="About WOWHAIR"
                                 width={600}
                                 height={400}
@@ -323,7 +346,7 @@ export default function HomePage() {
                             />
 
                             {/* Play Button Overlay */}
-                            <button className="absolute bottom-[-25px] right-[-25px] bg-[#c7a05c] hover:bg-[#b18d4d] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition">
+                            <button className="absolute bottom-[-25px] right-[-25px] bg-[#868686] hover:bg-[#b18d4d] text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="white"
@@ -351,23 +374,24 @@ export default function HomePage() {
                             className="w-full lg:w-1/2 space-y-6 px-2 sm:px-6 md:px-8 lg:px-0 text-left"
                         >
                             <div className="relative">
-                                <h2 className="text-4xl md:text-5xl font-extrabold text-[#111] relative z-10">
-                                    About <span className="text-[#c7a05c]">WOWHAIR</span>
+                                <h2 className="text-4xl md:text-5xl font-extrabold text-[#ffffff] relative z-10">
+                                    About <span className="text-[#ffffff]">HAIRSAGA</span>
+
                                 </h2>
                                 {/* Faint Background Text */}
-                                <span className="absolute text-[100px] md:text-[140px] font-extrabold text-[#f4f4f4] left-0 top-[-40px] select-none leading-none tracking-tight z-0">
+                                {/* <span className="absolute text-[100px] md:text-[140px] font-extrabold text-[#f4f4f4] left-0 top-[-40px] select-none leading-none tracking-tight z-0">
                                     ABOUT
-                                </span>
+                                </span> */}
                             </div>
 
-                            <p className="text-gray-600 leading-relaxed mt-10">
+                            <p className="text-[#ffffff] leading-relaxed mt-10">
                                 Sit amet consectetur, adipisicing elit. Odit laudantium fugiat recusandae
                                 quam saepe corrupti, dignissimos a architecto, doloribus sed. Soluta sit,
                                 quo corporis nobis ab quam eligendi amet consequuntur hic. Culpa in ut
                                 voluptatem cumque odio.
                             </p>
 
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-[#ffffff] leading-relaxed">
                                 Amet, incidunt odio officia eligendi aperiam aliquid accusamus pariatur,
                                 obcaecati impedit id consequuntur provident accusantium, consectetur
                                 reprehenderit cumque. Explicabo nihil saepe a similique, est quisquam.
@@ -390,15 +414,15 @@ export default function HomePage() {
                 {/* ===== what weoffer Section ===== */}
                 <section className="relative bg-[#f5f5f5] py-24 overflow-hidden">
                     {/* Background faint text */}
-                    <h2 className="absolute text-[140px] md:text-[220px] font-extrabold text-[#f7f7f7] left-1/2 -translate-x-1/2 top-8 select-none pointer-events-none leading-none tracking-tight z-0">
+                    {/* <h2 className="absolute text-[140px] md:text-[220px] font-extrabold text-[#f7f7f7] left-1/2 -translate-x-1/2 top-8 select-none pointer-events-none leading-none tracking-tight z-0">
                         SERVICE
-                    </h2>
+                    </h2> */}
 
                     <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
                         {/* Heading */}
                         <div className="text-center mb-12">
                             <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                                What We <span className="text-[#c7a05c]">Offer</span>
+                                What We <span className="text--gray-900">Offer</span>
                             </h3>
                             <p className="text-gray-600 max-w-2xl mx-auto">
                                 Deleniti dicta aspernatur expedita. Hic, harum. Repellat at, excepturi
@@ -408,215 +432,192 @@ export default function HomePage() {
                         </div>
 
                         {/* ===== Main Grid ===== */}
-                        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                            {/* Left Column */}
-                            <div className="space-y-10 order-1">
-                                {/* Card 1 */}
-                                <motion.div
-                                    variants={zoomVariant}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="text-left"
-                                >
-                                    <div className="relative">
-                                        <Image
-                                            src={home.normalHaircut}
-                                            alt="Normal Haircut"
-                                            width={400}
-                                            height={250}
-                                            className="w-full h-[250px] object-cover"
-                                        />
-                                        <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
-                                                Details
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <h4 className="text-xl font-bold mt-4 text-gray-900">
-                                        Normal Haircut
-                                    </h4>
-                                    <p className="text-gray-600 text-sm mt-1">
-                                        Beatae consectetur tempore, veritatis, eos error odio perspiciatis
-                                    </p>
-                                </motion.div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
 
-                                {/* Card 2 */}
-                                <motion.div
-                                    variants={zoomVariant}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="text-left"
-                                >
-                                    <div className="relative">
-                                        <Image
-                                            src={home.hairPump}
-                                            alt="Hair Pump"
-                                            width={400}
-                                            height={250}
-                                            className="w-full h-[250px] object-cover"
-                                        />
-                                        <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
-                                                Details
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <h4 className="text-xl font-bold mt-4 text-gray-900">Hair Pump</h4>
-                                    <p className="text-gray-600 text-sm mt-1">
-                                        Beatae consectetur tempore, veritatis, eos error odio perspiciatis
-                                    </p>
-                                </motion.div>
-                            </div>
-
-                            {/* Center Image — desktop only */}
+                            {/* CARD 1 */}
                             <motion.div
                                 variants={zoomVariant}
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
-                                className="hidden lg:flex justify-center order-2"
+                                className="text-left"
                             >
-                                <Image
-                                    src={home.groupCut}
-                                    alt="Group Haircut"
-                                    width={450}
-                                    height={500}
-                                    className="object-contain"
-                                />
+                                <div className="relative">
+                                    <Image
+                                        src={home.normalHaircut}
+                                        alt="Normal Haircut"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">Normal Haircut</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
                             </motion.div>
 
-                            {/* Right Column */}
-                            <div className="space-y-10 order-3">
-                                {/* Card 3 */}
-                                <motion.div
-                                    variants={zoomVariant}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="text-left"
-                                >
-                                    <div className="relative">
-                                        <Image
-                                            src={home.hairClean}
-                                            alt="Hair Clean"
-                                            width={400}
-                                            height={250}
-                                            className="w-full h-[250px] object-cover"
-                                        />
-                                        <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
-                                                Details
-                                            </button>
-                                        </div>
+                            {/* CARD 2 */}
+                            <motion.div
+                                variants={zoomVariant}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="text-left"
+                            >
+                                <div className="relative">
+                                    <Image
+                                        src={home.hairPump}
+                                        alt="Hair Pump"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
                                     </div>
-                                    <h4 className="text-xl font-bold mt-4 text-gray-900">Hair Clean</h4>
-                                    <p className="text-gray-600 text-sm mt-1">
-                                        Beatae consectetur tempore, veritatis, eos error odio perspiciatis
-                                    </p>
-                                </motion.div>
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">Hair Pump</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
+                            </motion.div>
 
-                                {/* Card 4 */}
-                                <motion.div
-                                    variants={zoomVariant}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="text-left"
-                                >
-                                    <div className="relative">
-                                        <Image
-                                            src={home.newBeardCut}
-                                            alt="New Beard Cut"
-                                            width={400}
-                                            height={250}
-                                            className="w-full h-[250px] object-cover"
-                                        />
-                                        <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
-                                                Details
-                                            </button>
-                                        </div>
+                            {/* CARD 3 */}
+                            <motion.div
+                                variants={zoomVariant}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="text-left"
+                            >
+                                <div className="relative">
+                                    <Image
+                                        src={home.hairClean}
+                                        alt="Hair Clean"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
                                     </div>
-                                    <h4 className="text-xl font-bold mt-4 text-gray-900">
-                                        New Beard Cut
-                                    </h4>
-                                    <p className="text-gray-600 text-sm mt-1">
-                                        Beatae consectetur tempore, veritatis, eos error odio perspiciatis
-                                    </p>
-                                </motion.div>
-                            </div>
-                        </div>
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">Hair Clean</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
+                            </motion.div>
+                            {/* CARD 1 */}
+                            <motion.div
+                                variants={zoomVariant}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="text-left"
+                            >
+                                <div className="relative">
+                                    <Image
+                                        src={home.newBeardCut}
+                                        alt="Normal Haircut"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">new beard cut</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
+                            </motion.div>
 
-                        {/* ✅ Mobile + iPad Layout (2 cards per row for md) */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:hidden gap-8">
-                            {/* Card List (same four cards reused for small + md) */}
-                            {[
-                                {
-                                    img: "/assets/images/normalhaircut.jpg",
-                                    title: "Normal Haircut",
-                                },
-                                {
-                                    img: "/assets/images/hairpump.jpg",
-                                    title: "Hair Pump",
-                                },
-                                {
-                                    img: "/assets/images/hairclean.jpg",
-                                    title: "Hair Clean",
-                                },
-                                {
-                                    img: "/assets/images/newbeardcut.jpg",
-                                    title: "New Beard Cut",
-                                },
-                            ].map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    variants={zoomVariant}
-                                    initial="hidden"
-                                    whileInView="visible"
-                                    viewport={{ once: true }}
-                                    className="text-left"
-                                >
-                                    <div className="relative">
-                                        <Image
-                                            src={item.img}
-                                            alt={item.title}
-                                            width={400}
-                                            height={250}
-                                            className="w-full h-[250px] object-cover"
-                                        />
-                                        <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                            <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
-                                                Details
-                                            </button>
-                                        </div>
+                            {/* CARD 2 */}
+                            <motion.div
+                                variants={zoomVariant}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="text-left"
+                            >
+                                <div className="relative">
+                                    <Image
+                                        src={home.hairSpa}
+                                        alt="Hair Spa"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
                                     </div>
-                                    <h4 className="text-xl font-bold mt-4 text-gray-900">
-                                        {item.title}
-                                    </h4>
-                                    <p className="text-gray-600 text-sm mt-1">
-                                        Beatae consectetur tempore, veritatis, eos error odio perspiciatis
-                                    </p>
-                                </motion.div>
-                            ))}
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">Hair Spa</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
+                            </motion.div>
+
+                            {/* CARD 3 */}
+                            <motion.div
+                                variants={zoomVariant}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                className="text-left"
+                            >
+                                <div className="relative">
+                                    <Image
+                                        src={home.faceCleanUp}
+                                        alt="Hair Clean"
+                                        width={400}
+                                        height={250}
+                                        className="w-full h-[250px] object-cover"
+                                    />
+                                    <div className="absolute right-6 translate-y-1/2 bottom-0">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            Details
+                                        </button>
+                                    </div>
+                                </div>
+                                <h4 className="text-xl font-bold mt-4 text-gray-900">Face Cleanup</h4>
+                                <p className="text-gray-600 text-sm mt-1">
+                                    Beatae consectetur tempore, veritatis, eos error odio perspiciatis
+                                </p>
+                            </motion.div>
+
                         </div>
                     </div>
                 </section>
 
 
                 {/* ===== Gallery Section (Added) ===== */}
-                < section className="relative bg-[#ffffff] py-24" >
-                    <h2 className="absolute text-[140px] md:text-[220px] font-extrabold text-[#f7f7f7] left-1/2 -translate-x-1/2 top-8 select-none pointer-events-none leading-none tracking-tight z-0">
+                < section className="relative bg-[#1a1a1a] py-24" >
+                    {/* <h2 className="absolute text-[140px] md:text-[220px] font-extrabold text-[#f7f7f7] left-1/2 -translate-x-1/2 top-8 select-none pointer-events-none leading-none tracking-tight z-0">
                         GALLERY
-                    </h2>
+                    </h2> */}
 
                     <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
                         <div className="text-center mb-12">
-                            <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-                                Awesome <span className="text-[#c7a05c]">Gallery</span>
+                            <h3 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                                Awesome <span className="text-white" >Gallery</span>
                             </h3>
-                            <p className="text-gray-600 max-w-2xl mx-auto">
+                            <p className="text-white max-w-2xl mx-auto">
                                 Deleniti dicta aspernatur expedita. Hic, harum. Repellat at, excepturi placeat atque hic.
                             </p>
                         </div>
@@ -628,8 +629,8 @@ export default function HomePage() {
                                     key={filter}
                                     onClick={() => setActiveFilter(filter)}
                                     className={`px-6 py-2 rounded-full border font-medium transition-all duration-300 ${activeFilter === filter
-                                        ? "bg-[#c7a05c] text-white border-[#c7a05c]"
-                                        : "text-[#c7a05c] border-dashed border-[#c7a05c] hover:bg-[#c7a05c] hover:text-white"
+                                        ? "bg-[#7c7c7c] text-white border-[#ffffff]"
+                                        : "text-[#ffffff] border-dashed border-[#ffffff] hover:bg-[#7c7c7c] hover:text-white"
                                         }`}
                                 >
                                     {filter}
@@ -654,9 +655,9 @@ export default function HomePage() {
                                     />
 
                                     {/* Overlay (Slide from Top to Bottom) */}
-                                    <div className="absolute inset-0 bg-[#c7a05c]/80 flex items-center justify-center transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                                    {/* <div className="absolute inset-0 bg-[#ffffff]/80 flex items-center justify-center transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                                         <FaSearch className="text-white text-3xl" />
-                                    </div>
+                                    </div> */}
                                 </div>
                             ))}
                         </div>
@@ -732,19 +733,19 @@ export default function HomePage() {
 
 
                 {/* ===== latest news Section (Added) ===== */}
-                <section className="py-16 bg-[#ffffff]">
+                <section className="py-16 bg-[#1a1a1a]">
                     <div className="max-w-6xl mx-auto text-center px-4">
                         {/* Header */}
                         <div className="relative mb-12">
-                            <h2 className="text-4xl font-extrabold text-gray-900 relative z-10">
+                            <h2 className="text-4xl font-extrabold text-white relative z-10">
                                 Latest News
                             </h2>
-                            <span className="absolute inset-0 flex justify-center items-center text-[110px] font-bold text-gray-200 opacity-30 select-none">
+                            {/* <span className="absolute inset-0 flex justify-center items-center text-[110px] font-bold text-gray-200 opacity-30 select-none">
                                 BLOG
-                            </span>
+                            </span> */}
                         </div>
 
-                        <p className="text-gray-600 max-w-3xl mx-auto mb-12">
+                        <p className="text-white max-w-3xl mx-auto mb-12">
                             Deleniti dicta aspernatur expedita. Hic, harum. Repellat at, excepturi
                             placeat atque hic, beatae alias saepe recusandae numquam totam laborum.
                             Facilis iure rem corrupti laborum.
@@ -793,7 +794,7 @@ export default function HomePage() {
 
                                     {/* Floating Button */}
                                     <div className="absolute right-6 bottom-0 translate-y-1/2">
-                                        <button className="bg-[#c7a05c] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
+                                        <button className="bg-[#1a1a1a] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
                                             Read More
                                         </button>
                                     </div>
