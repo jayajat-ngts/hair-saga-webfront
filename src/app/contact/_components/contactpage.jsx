@@ -73,7 +73,7 @@ export default function Contactpage() {
   };
 
   return (
-    <main className="overflow-hidden pt-[140px] sm:pt-[160px] md:pt-[180px]">
+    <main className="overflow-hidden pt-[200px] sm:pt-[160px] md:pt-[180px]">
 
       {/* HERO */}
       <section className="relative text-center text-black">

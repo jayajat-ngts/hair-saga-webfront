@@ -118,13 +118,13 @@ export default function Bookingpage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
             <FaPhoneAlt className="mx-auto text-[#111] text-2xl mb-2" />
-            <h4 className="font-semibold text-lg">Call Us</h4>
+            <h4 className="font-semibold text-lg text-[#111]">Call Us</h4>
             <p className="text-gray-600 text-sm sm:text-base">+918889399949</p>
           </div>
 
           <div>
             <FaMapMarkerAlt className="mx-auto text-[#111] text-2xl mb-2" />
-            <h4 className="font-semibold text-lg">Our Location</h4>
+            <h4 className="font-semibold text-lg text-[#111]">Our Location</h4>
             <p className="text-gray-600 text-sm sm:text-base px-4">
               G5 BUSINESS ISLAND, GATE 2, opp.SAMAR PARK, Garg Resort Colony, Nipania, Indore, MP
             </p>
@@ -132,7 +132,7 @@ export default function Bookingpage() {
 
           <div>
             <FaClock className="mx-auto text-[#111] text-2xl mb-2" />
-            <h4 className="font-semibold text-lg">Working Hours</h4>
+            <h4 className="font-semibold text-lg text-[#111]">Working Hours</h4>
             <p className="text-gray-600 text-sm sm:text-base">Mon - Sun: 10:30 AM - 9 PM</p>
           </div>
         </div>
