@@ -213,7 +213,7 @@ export default function Contactpage() {
                       : "bg-[#111] text-white hover:bg-white hover:text-[#111]"
                     }`}
                 >
-                  {loading ? "Sending..." : "Send Message"}
+                  {loading ? "Sending....." : "Send Message"}
                 </button>
               </div>
 
