@@ -36,7 +36,7 @@ export default function Gallerypage() {
             ? galleryItems
             : galleryItems.filter((item) => item.category === activeFilter);
     return (
-        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+        <main className="overflow-hidden pt-[200px] sm:pt-[170px] md:pt-[180px]">
 
 
             {/* =================== HERO SECTION =================== */}
@@ -106,7 +106,7 @@ export default function Gallerypage() {
                                 onClick={() => setActiveFilter(filter)}
                                 className={`px-5 sm:px-6 py-2 rounded-full border font-medium transition-all duration-300 ${activeFilter === filter
                                     ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
-                                    : "text-[#62504c] border-dashed border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white font-semibold"
+                                    : "text-[#1a1a1a] border-dashed border-[#1a1a1a] hover:bg-[#1a1a1a] hover:text-white font-semibold"
                                     }`}
                             >
                                 {filter}

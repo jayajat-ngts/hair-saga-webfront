@@ -143,8 +143,6 @@ export default function HomePage() {
 
                     {/* ===== Content Section ===== */}
                     <div className="flex flex-col lg:flex-row items-center w-full relative z-10">
-                        {/* ✅ Mobile + iPad → text on top, image below
-                       ✅ Desktop → text left, image right */}
 
                         {/* Left Content */}
                         <div className="relative w-full z-20 lg:w-[40%] space-y-6 px-6 sm:px-10 md:px-20 lg:px-28 text-center lg:text-left lg:ml-16 mt-10 lg:mt-0">
@@ -178,7 +176,7 @@ export default function HomePage() {
                             </div>
 
                             {/* Headline */}
-                            <h1 className="outline-text text-4xl sm:text-5xl lg:text-6xl leading-tight whitespace-nowrap ">
+                            <h1 className="outline-text text-4xl sm:text-5xl lg:text-6xl leading-tight whitespace-nowrap mt-22 lg:mt-0  md:mt-0 font-extrabold">
                                 Every Hair Has
                                 <br />A Story Begin
                                 <br />Yours At
@@ -262,13 +260,14 @@ export default function HomePage() {
                                     />
 
                                     {/* Floating Button (Right side, half inside-outside) */}
-                                    <div className="absolute -right-6 translate-y-1/2 bottom-0">
+                                    <div className="absolute right-0 sm:right lg:-right-6  translate-y-1/2 bottom-0">
                                         <Link
                                             href="/booking"
-                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
+                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3  transition">
                                             Book Now
                                         </Link>
                                     </div>
+
                                 </div>
                             </motion.div>
 
@@ -287,7 +286,7 @@ export default function HomePage() {
                                         alt="Hair Pump"
                                         className="w-full h-[250px] object-cover"
                                     />
-                                    <div className="absolute -right-6 translate-y-1/2 bottom-0">
+                                    <div className="absolute right-0 sm:right lg:-right-6  translate-y-1/2 bottom-0">
                                         <Link
                                             href="/booking"
                                             className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3  transition">
@@ -311,10 +310,10 @@ export default function HomePage() {
                                         alt="Face Wash"
                                         className="w-full h-[250px] object-cover"
                                     />
-                                    <div className="absolute -right-6 translate-y-1/2 bottom-0">
+                                    <div className="absolute right-0 sm:right lg:-right-6 translate-y-1/2 bottom-0">
                                         <Link
                                             href="/booking"
-                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3  transition">
+                                            className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
                                             Book Now
                                         </Link>
                                     </div>
@@ -534,7 +533,7 @@ export default function HomePage() {
                                         className="w-full h-[250px] object-cover"
                                     />
                                     <div className="absolute right-6 translate-y-1/2 bottom-0">
-                                        <button className="bg-[#111] hover:bg-[#b18d4d] text-white font-semibold px-8 py-3 transition">
+                                        <button className="bg-[#111] hover:bg-[#111] text-white font-semibold px-8 py-3 transition">
                                             Details
                                         </button>
                                     </div>

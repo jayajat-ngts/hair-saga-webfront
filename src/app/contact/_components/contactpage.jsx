@@ -4,18 +4,16 @@ import { FaAngleRight } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGooglePlusG } from "react-icons/fa";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { home } from "@/app/_Components/images";
 
-const API_BASE_URL = process.env.NEXT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export default function Contactpage() {
   const [bubbles, setBubbles] = useState([]);
   const [showMap, setShowMap] = useState(false);
 
-  // ✅ Form state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,26 +25,21 @@ export default function Contactpage() {
   const [loading, setLoading] = useState(false);
   const [responseMsg, setResponseMsg] = useState("");
 
-
   useEffect(() => {
-    const bubbleArray = Array.from({ length: 80 }).map((_, i) => ({
-      id: i,
-      size: Math.random() * 3 + 7,
-      left: Math.random() * 100,
-      duration: 6 + Math.random() * 3,
-      delay: Math.random() * 3,
-    }));
-    setBubbles(bubbleArray);
+    setBubbles(
+      Array.from({ length: 80 }).map((_, i) => ({
+        id: i,
+        size: Math.random() * 3 + 7,
+        left: Math.random() * 100,
+        duration: 6 + Math.random() * 3,
+        delay: Math.random() * 3,
+      }))
+    );
   }, []);
 
-
-  // 🧠 Handle form field changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
-
-  // 🚀 Submit handler
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,11 +48,9 @@ export default function Contactpage() {
 
     try {
       const res = await axios.post(
-        "https://4zk2cl8s-4000.inc1.devtunnels.ms/api/contactUs",
-        formData, // Axios automatically stringifies JSON
-        {
-          headers: { "Content-Type": "application/json" },
-        }
+        `${API_BASE_URL}api/contactUs`,   // FIXED
+        formData,
+        { headers: { "Content-Type": "application/json" } }
       );
 
       if (res.status === 200 || res.status === 201) {
@@ -72,10 +63,9 @@ export default function Contactpage() {
           message: "",
         });
       } else {
-        throw new Error("Unexpected response from server");
+        throw new Error("Unexpected server response");
       }
     } catch (err) {
-      console.error(err);
       setResponseMsg("❌ Failed to send message. Please try again later.");
     } finally {
       setLoading(false);
@@ -83,18 +73,13 @@ export default function Contactpage() {
   };
 
   return (
-    <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+    <main className="overflow-hidden pt-[140px] sm:pt-[160px] md:pt-[180px]">
 
-
-      {/* =================== HERO SECTION =================== */}
-
+      {/* HERO */}
       <section className="relative text-center text-black">
-
         <div
-          className="
-      relative bg-cover bg-center flex items-center justify-center text-white 
-      h-[45vh] sm:h-[55vh] md:h-[65vh]
-    "
+          className="relative bg-cover bg-center flex items-center justify-center text-white 
+          h-[45vh] sm:h-[55vh] md:h-[65vh]"
           style={{ backgroundImage: `url(${home.mainImg.src})` }}
         >
           <div className="absolute inset-0 bg-black/30"></div>
@@ -102,7 +87,8 @@ export default function Contactpage() {
           {/* Bubbles */}
           <div className="absolute inset-0 overflow-hidden">
             {bubbles.map((b) => (
-              <span key={b.id}
+              <span
+                key={b.id}
                 className="bubble"
                 style={{
                   width: `${b.size}px`,
@@ -115,66 +101,58 @@ export default function Contactpage() {
             ))}
           </div>
 
-          {/* ABOUT BOX */}
+          {/* CONTACT US BOX */}
           <div
-            className="
-        relative z-10 bg-white text-black 
-        py-6 sm:py-8 md:py-10 
-        px-5 sm:px-8 md:px-16 
-        shadow-lg 
-        w-[85%] sm:w-[70%] md:max-w-lg mx-auto
-        before:content-[''] before:absolute before:-inset-2 
-        before:border before:border-dashed before:border-gray-400 before:-z-10
-      "
+            className="relative z-10 bg-white text-black py-6 sm:py-8 md:py-10 px-5 sm:px-8 md:px-16 
+            shadow-lg w-[85%] sm:w-[70%] md:max-w-lg mx-auto border border-gray-300"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3">
               Contact Us
             </h1>
 
-            <div className="flex items-center justify-center text-sm sm:text-base md:text-lg">
+            <div className="flex items-center justify-center text-sm sm:text-base">
               <a href="/" className="text-[#111] font-medium">Home</a>
               <FaAngleRight className="mx-2 text-gray-600" />
               <span className="text-[#111] font-medium">Contact Us</span>
             </div>
           </div>
-
         </div>
-
       </section>
 
-      {/* =================== CONTACT FORM SECTION =================== */}
-      <section className="bg-white py-8 px-4">
+      {/* CONTACT SECTION */}
+      <section className="bg-white py-10 px-4">
         <div className="max-w-7xl mx-auto bg-[#f6f6f6] shadow-2xl p-10 text-center">
+
           {/* Contact Info */}
           <div className="grid md:grid-cols-3 divide-x divide-[#111]/50 mb-12">
             <div className="flex flex-col items-center justify-center py-6">
-              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mb-3">
+              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white mb-3 text-xl">
                 <FaPhoneAlt />
               </div>
-              <p className="text-gray-700">+012 123 456 789</p>
+              <p className="text-gray-700">+918889399949</p>
             </div>
 
             <div className="flex flex-col items-center justify-center py-6">
-              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mb-3">
+              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white mb-3 text-xl">
                 <FaEnvelope />
               </div>
-              <p className="text-gray-700">yourmail@gmail.com</p>
+              <p className="text-gray-700">hairsagaindia1@gmail.com</p>
             </div>
 
-            <div className="flex flex-col items-center justify-center py-6">
-              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white text-xl mb-3">
+            <div className="flex flex-col items-center justify-center py-6 px-4">
+              <div className="bg-[#111] w-12 h-12 rounded-full flex items-center justify-center text-white mb-3 text-xl">
                 <FaMapMarkerAlt />
               </div>
               <p className="text-gray-700">
-                30/20 Green Valley Road,
-                <br /> Hemlock Valley, Canada
+                G5 BUSINESS ISLAND, GATE 2, opp.SAMAR PARK, Garg Resort Colony, Nipania, Indore, MP
               </p>
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* FORM */}
           <div className="border border-dashed border-[#111] p-8 max-w-3xl mx-auto">
             <form className="space-y-5" onSubmit={handleSubmit}>
+
               <div className="grid md:grid-cols-2 gap-5">
                 <input
                   type="text"
@@ -182,7 +160,7 @@ export default function Contactpage() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name*"
-                  className="w-full bg-[#ffffff] border border-gray-200 p-3 focus:outline-none focus:border-[#d6a354]"
+                  className="w-full bg-white border border-gray-200 text-[#111] p-3 focus:outline-none placeholder-black"
                   required
                 />
                 <input
@@ -191,7 +169,7 @@ export default function Contactpage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email*"
-                  className="w-full bg-[#ffffff] border border-gray-200 p-3 focus:outline-none focus:border-[#d6a354]"
+                  className="w-full bg-white border border-gray-200 text-[#111] p-3 focus:outline-none placeholder-black"
                   required
                 />
               </div>
@@ -203,7 +181,7 @@ export default function Contactpage() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject*"
-                  className="w-full bg-[#ffffff] border border-gray-200 p-3 focus:outline-none focus:border-[#d6a354]"
+                  className="w-full bg-white border border-gray-200 text-[#111] p-3 focus:outline-none placeholder-black"
                   required
                 />
                 <input
@@ -212,17 +190,17 @@ export default function Contactpage() {
                   value={formData.phonenumber}
                   onChange={handleChange}
                   placeholder="Phone Number"
-                  className="w-full bg-[#ffffff] border border-gray-200 p-3 focus:outline-none focus:border-[#d6a354]"
+                  className="w-full bg-white border border-gray-200 text-[#111] p-3 focus:outline-none placeholder-black"
                 />
               </div>
 
               <textarea
-                rows="5"
                 name="message"
+                rows="5"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Message"
-                className="w-full bg-[#ffffff] border border-gray-200 p-3 focus:outline-none focus:border-[#d6a354]"
+                className="w-full bg-white border border-gray-200 text-[#111] p-3 focus:outline-none placeholder-black"
                 required
               ></textarea>
 
@@ -232,12 +210,13 @@ export default function Contactpage() {
                   disabled={loading}
                   className={`px-8 py-3 font-medium transition ${loading
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-[#111] text-white hover:bg-[#ffffff] hover:text-[#111]"
+                      : "bg-[#111] text-white hover:bg-white hover:text-[#111]"
                     }`}
                 >
                   {loading ? "Sending..." : "Send Message"}
                 </button>
               </div>
+
               {responseMsg && (
                 <p className="text-center mt-3 text-sm text-gray-700">
                   {responseMsg}
@@ -246,32 +225,31 @@ export default function Contactpage() {
             </form>
           </div>
         </div>
-
-        {/* 🌍 Open Map Button */}
-        <div className="text-center mt-20">
-          <button
-            onClick={() => setShowMap(!showMap)}
-            className="bg-[#111] text-white px-6 py-3 hover:bg-[#ffffff] hover:text-[#111] transition"
-          >
-            {showMap ? "Hide Google Map" : "Open Google Map"}
-          </button>
-        </div>
-
-        {showMap && (
-          <div className="mt-8 flex justify-center">
-            <iframe
-              title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.195330428779!2d-122.0463563843684!3d49.20031277932181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d9b7e89c1b9f%3A0x3b93f3b4c5cfcf5b!2sHemlock%20Valley%2C%20BC%2C%20Canada!5e0!3m2!1sen!2sin!4v1717584699778!5m2!1sen!2sin"
-              width="90%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              className="shadow-lg"
-            ></iframe>
-          </div>
-        )}
       </section>
+
+      {/* GOOGLE MAP BUTTON */}
+      <div className="text-center mt-10 mb-10">
+        <button
+          onClick={() => setShowMap(!showMap)}
+          className="bg-[#111] text-white px-6 py-3 hover:bg-white hover:text-[#111] transition"
+        >
+          {showMap ? "Hide Google Map" : "Open Google Map"}
+        </button>
+      </div>
+
+      {showMap && (
+        <div className="mt-8 flex justify-center">
+          <iframe
+            src="https://www.google.com/maps/place/Hair+Saga+Unisex+Salon+And+Academy/@22.7631075,75.9236388,17z/data=!3m1!4b1!4m6!3m5!1s0x39631ded1d91b321:0x46201d3a24c5bad1!8m2!3d22.7631075!4d75.9236388!16s%2Fg%2F11yjk64bz1?entry=ttu&g_ep=EgoyMDI1MTExMi4wIKXMDSoASAFQAw%3D%3D"
+            width="90%"
+            height="400"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            className="shadow-lg"
+          ></iframe>
+        </div>
+      )}
     </main>
   );
 }

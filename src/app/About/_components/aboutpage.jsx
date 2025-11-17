@@ -119,7 +119,7 @@ export default function Aboutpage() {
         };
     }, []);
     return (
-        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+        <main className="overflow-hidden pt-[200px] sm:pt-[170px] md:pt-[180px]">
 
 
             {/* =================== HERO SECTION =================== */}
@@ -276,7 +276,7 @@ export default function Aboutpage() {
                 </div>
             </section>
             {/* ===== TestimonialSection (Added) ===== */}
-            <section className="relative bg-[#1a1a1a] pt-36 pb-0 overflow-hidden">
+            <section className="relative bg-[#1a1a1a] lg:pt-20 pb-0 overflow-hidden">
                 {/* Background faint text */}
                 {/* <h2 className="absolute text-[8rem] md:text-[12rem] font-extrabold text-gray-200 opacity-30 top-10 left-8 md:left-1/2 transform md:-translate-x-1/2 select-none tracking-tight">
                     TESTIMONIAL
