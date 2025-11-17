@@ -31,7 +31,7 @@ const Navbarpage = () => {
     //     // { name: "Service Details", href: "/serviceDetail" },
     //   ],
     // },
-      { name: "Service", href: "/Service" },
+    { name: "Service", href: "/Service" },
     { name: "Gallery", href: "/gallery" },
     // {
     //   name: "Pages",
@@ -57,39 +57,48 @@ const Navbarpage = () => {
     <nav className="fixed top-0 w-full z-50  shadow-sm">
 
       {/* ===== TOP INFO BAR ===== */}
-      <div className="h-[70px] border-b border-gray-200 flex items-center px-6 bg-white sm:px-12">
-        <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
+      <div className="h-auto border-b border-gray-200 px-4 sm:px-8 py-3 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
 
-          {/* Left */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8">
-            <div className="flex items-center gap-2 text-black text-sm">
+          {/* Left Section */}
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-sm">
+
+            {/* Phone */}
+            <div className="flex items-center gap-2 text-black">
               <Phone size={16} />
-              <span className="font-medium">+918889399949</span>
+              <span className="font-medium whitespace-nowrap">
+                +918889399949
+              </span>
             </div>
 
-            <div className="flex items-center gap-2 text-black text-sm">
+            {/* Timing */}
+            <div className="flex items-center gap-2 text-black">
               <Clock size={16} />
-              <span>Monday - Sunday (10:30AM - 9PM)</span>
+              <span className="whitespace-nowrap">
+                Monday - Sunday (10:30AM - 9PM)
+              </span>
             </div>
+
           </div>
 
-          {/* Right */}
+          {/* Right Section */}
           <Link
             href="/booking"
-            className="bg-[#111] text-white px-5 py-2 text-sm font-medium rounded hover:bg-black transition"
+            className="bg-[#111] text-white px-4 py-2 text-sm font-medium rounded hover:bg-black transition"
           >
             Book now
           </Link>
         </div>
       </div>
 
+
       {/* ===== MAIN NAVBAR ===== */}
-       <div
+      <div
         className={`px-6 py-3 transition-all duration-500 ${isHome
-            ? scrolled
-              ? "bg-[#1a1a1a] text-[#ffffff] shadow-md"
-              : "bg-transparent text-white border-b border-white/30"
-            : "bg-[#1a1a1a] text-white shadow-md"
+          ? scrolled
+            ? "bg-[#1a1a1a] text-[#ffffff] shadow-md"
+            : "bg-transparent text-white border-b border-white/30"
+          : "bg-[#1a1a1a] text-white shadow-md"
           }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -114,8 +123,8 @@ const Navbarpage = () => {
                   <Link
                     href={link.href}
                     className={`flex items-center space-x-1 text-sm font-medium transition ${isHome && !scrolled
-                        ? "text-white hover:text-[#ffffff]"
-                        : "text-white hover:text-[#ffffff]"
+                      ? "text-white hover:text-[#ffffff]"
+                      : "text-white hover:text-[#ffffff]"
                       }`}
                   >
                     <span>{link.name}</span>
@@ -162,8 +171,8 @@ const Navbarpage = () => {
         {isOpen && (
           <ul
             className={`lg:hidden mt-4 flex flex-col space-y-3 p-4 rounded-lg transition-all duration-500 ${isHome && !scrolled
-                ? "bg-[#1a1a1a] text-white"
-                : "bg-white text-black shadow-md"
+              ? "bg-[#1a1a1a] text-white"
+              : "bg-white text-black shadow-md"
               }`}
           >
             {navLinks.map((link) => (

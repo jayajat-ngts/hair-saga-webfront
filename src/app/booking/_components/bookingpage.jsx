@@ -10,10 +10,27 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import { FaScissors } from "react-icons/fa6";
-import Image from "next/image";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+// Generate time slots between 10:30 AM and 9:00 PM
+const generateTimeSlots = () => {
+  const slots = [];
+  let start = 10 * 60 + 30; // 10:30 → 630 minutes
+  const end = 21 * 60;       // 21:00 → 1260 minutes
+
+  while (start <= end) {
+    const h = Math.floor(start / 60);
+    const m = start % 60;
+    const hh = h.toString().padStart(2, "0");
+    const mm = m.toString().padStart(2, "0");
+    slots.push(`${hh}:${mm}`);
+    start += 30; // 30 minute interval
+  }
+  return slots;
+};
 
 export default function Bookingpage() {
-  // ✅ Form state
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,16 +42,13 @@ export default function Bookingpage() {
     message: "",
   });
 
-  // ✅ Loading and response state
   const [loading, setLoading] = useState(false);
   const [responseMsg, setResponseMsg] = useState("");
 
-  // ✅ Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ✅ Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -52,10 +66,8 @@ export default function Bookingpage() {
         additionalNotes: formData.message,
       };
 
-      console.log("📦 Sending booking payload:", payload);
-
       const res = await axios.post(
-        "https://4zk2cl8s-4000.inc1.devtunnels.ms/api/bookNow",
+        `${API_BASE_URL}api/bookNow`,
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
@@ -74,11 +86,10 @@ export default function Bookingpage() {
         });
         setResponseMsg("✅ Appointment booked successfully!");
       } else {
-        alert("⚠️ Something went wrong while booking. Please try again.");
+        alert("⚠️ Something went wrong. Please try again.");
         setResponseMsg("⚠️ Something went wrong. Try again.");
       }
     } catch (error) {
-      console.error("❌ Booking error:", error);
       alert("❌ Failed to book your appointment. Please try again later.");
       setResponseMsg("❌ Booking failed. Please try again.");
     } finally {
@@ -87,104 +98,111 @@ export default function Bookingpage() {
   };
 
   return (
-    <div className="bg-[#f8f8f8] min-h-screen">
-      {/* ===== Hero Section ===== */}
-      <section
-        className="relative h-[60vh] bg-cover bg-center flex items-center justify-center bg-[#111]"
-      >
+    <div className="bg-[#f8f8f8] min-h-screen overflow-x-hidden">
+
+      {/* Hero */}
+      <section className="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[60vh] bg-[#111] flex items-center justify-center pt-32 sm:pt-40">
         <div className="absolute inset-0 bg-black/50" />
-        <div className="relative z-10 text-center text-white">
-          <h1 className="text-5xl font-bold mt-20 mb-2">Book Your Appointment</h1>
-          <p className="text-lg max-w-2xl mx-auto">
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
+            Book Your Appointment
+          </h1>
+          <p className="text-sm sm:text-base max-w-xl mx-auto mb-2">
             Choose your service and preferred time. We’ll take care of the rest.
           </p>
         </div>
       </section>
 
-      {/* ===== Contact Info ===== */}
-      <section className="py-10 bg-white shadow-md -mt-12 z-20 relative rounded-t-2xl mx-6 md:mx-16">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+      {/* Contact Info */}
+      <section className="py-8 bg-white shadow-md -mt-10 relative rounded-t-2xl mx-4 sm:mx-10 md:mx-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
             <FaPhoneAlt className="mx-auto text-[#111] text-2xl mb-2" />
             <h4 className="font-semibold text-lg">Call Us</h4>
-            <p className="text-gray-600">+918889399949</p>
+            <p className="text-gray-600 text-sm sm:text-base">+918889399949</p>
           </div>
+
           <div>
             <FaMapMarkerAlt className="mx-auto text-[#111] text-2xl mb-2" />
             <h4 className="font-semibold text-lg">Our Location</h4>
-            <p className="text-gray-600">G5 BUSINESS ISLAND, GATE 2, opp.SAMAR PARK, Garg Resort Colony,
-              Nipania, Indore, Madhya Pradesh 452010,
-              India</p>
+            <p className="text-gray-600 text-sm sm:text-base px-4">
+              G5 BUSINESS ISLAND, GATE 2, opp.SAMAR PARK, Garg Resort Colony, Nipania, Indore, MP
+            </p>
           </div>
+
           <div>
             <FaClock className="mx-auto text-[#111] text-2xl mb-2" />
             <h4 className="font-semibold text-lg">Working Hours</h4>
-            <p className="text-gray-600">Mon - Sun: 10;30AM - 9PM</p>
+            <p className="text-gray-600 text-sm sm:text-base">Mon - Sun: 10:30 AM - 9 PM</p>
           </div>
         </div>
       </section>
 
-      {/* ===== Booking Form ===== */}
-      <section className="py-16 px-6 md:px-20">
+      {/* Booking Form */}
+      <section className="py-10 px-4 sm:px-10 md:px-20">
         <div className="max-w-5xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden">
           <form
             onSubmit={handleSubmit}
-            className="p-8 grid grid-cols-1 sm:grid-cols-2 gap-6"
+            className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {/* Name */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaUser /> Full Name
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaUser />
+                <span className="whitespace-nowrap">Full Name</span>
               </label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 required
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaPhoneAlt /> Phone Number
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaPhoneAlt />
+                <span className="whitespace-nowrap">Phone Number</span>
               </label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 required
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaEnvelope /> Email Address
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaEnvelope />
+                <span className="whitespace-nowrap">Email Address</span>
               </label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
               />
             </div>
 
             {/* Service */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaScissors /> Select Service
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaScissors />
+                <span className="whitespace-nowrap">Select Service</span>
               </label>
               <select
                 name="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 required
               >
                 <option value="">Select Service</option>
@@ -198,90 +216,87 @@ export default function Bookingpage() {
                 <option>Hair Straightning</option>
                 <option>Bridal Makeup</option>
                 <option>Manicure</option>
-                <option>pedicure</option>
+                <option>Pedicure</option>
               </select>
             </div>
 
-            {/* Stylist */}
-            {/* <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaUser /> Select Stylist
-              </label>
-              <select
-                name="stylist"
-                value={formData.stylist}
-                onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#c7a05c]"
-              >
-                <option value="">Select Stylist</option>
-                <option>John</option>
-                <option>Emily</option>
-                <option>Raj</option>
-              </select>
-            </div> */}
-
             {/* Date */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaCalendarAlt /> Select Date
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaCalendarAlt />
+                <span className="whitespace-nowrap">Select Date</span>
               </label>
               <input
                 type="date"
                 name="date"
                 value={formData.date}
+                min={new Date().toISOString().split("T")[0]}
                 onChange={handleChange}
-                min={new Date().toISOString().split("T")[0]}   // ⬅️ Prevent past dates
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 required
               />
             </div>
 
-            {/* Time */}
+            {/* Time (Dropdown) */}
             <div>
-              <label className="flex items-center gap-2 text-gray-700 font-medium mb-2">
-                <FaClock /> Select Time
+              <label className="flex items-center gap-2 text-gray-700 font-medium mb-1">
+                <FaClock />
+                <span className="whitespace-nowrap">Select Time</span>
               </label>
-              <input
-                type="time"
+
+              <select
                 name="time"
                 value={formData.time}
                 onChange={handleChange}
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 required
-              />
+              >
+                <option value="">Select Time</option>
+                {generateTimeSlots().map((slot) => {
+                  const [hh, mm] = slot.split(":");
+                  const suffix = hh >= 12 ? "PM" : "AM";
+                  const displayHour = ((hh % 12) || 12);
+                  const display = `${displayHour}:${mm} ${suffix}`;
+                  return (
+                    <option key={slot} value={slot}>
+                      {display}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
 
             {/* Message */}
-            <div className="col-span-2">
-              <label className="text-gray-700 font-medium mb-2 block">
-                Additional Notes (optional)
-              </label>
+            <div className="col-span-1 md:col-span-2">
+              <label className="text-gray-700 font-medium mb-1 block">Additional Notes (optional)</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
-                className="w-full border border-gray-300 rounded-md p-3 focus:outline-[#111]"
+                className="w-full border border-gray-300 rounded-md p-3"
                 placeholder="Any special requests?"
-              ></textarea>
+              />
             </div>
 
-            {/* Submit Button */}
-            <div className="col-span-2 text-center">
+            {/* Submit */}
+            <div className="col-span-1 md:col-span-2 text-center">
               <button
                 type="submit"
                 disabled={loading}
-                className={`bg-[#111] text-white px-10 py-3 rounded-md font-medium transition ${loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#111D]"
-                  }`}
+                className={`bg-[#111] text-white px-10 py-3 rounded-md font-medium transition ${
+                  loading ? "opacity-50 cursor-not-allowed" : "hover:bg-black"
+                }`}
               >
                 {loading ? "Booking..." : "Confirm Booking"}
               </button>
             </div>
           </form>
 
-          {/* Response message */}
           {responseMsg && (
-            <p className="text-center text-green-600 font-medium mt-4">{responseMsg}</p>
+            <p className="text-center text-green-600 font-medium mt-4 pb-6">
+              {responseMsg}
+            </p>
           )}
         </div>
       </section>

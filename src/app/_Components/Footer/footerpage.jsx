@@ -34,7 +34,7 @@ export default function Footer() {
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6 sm:mt-12 ">
         {/* About Us */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">About Us</h4>
+          <h4 className="text-lg font-semibold mb-4 text-[#111] ">About Us</h4>
           <p className="text-gray-600 mb-6 text-md leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat
             consequatur veritatis neque quos tempore nostrum voluptate molestiae
@@ -65,7 +65,7 @@ export default function Footer() {
 
         {/* Popular News */}
         <div>
-          <h4 className="text-lg font-semibold mb-4">Popular News</h4>
+          <h4 className="text-lg font-semibold mb-4 text-[#111] ">Popular News</h4>
           <div className="space-y-5">
             {[1, 2].map((item) => (
               <div
@@ -92,7 +92,7 @@ export default function Footer() {
 
         {/* Contact Us */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
+          <h4 className="text-lg  text-[#111] font-semibold mb-4">Contact Us</h4>
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-center gap-3 border-b-2 border-dashed border-[#e6e6e6] py-3">
               <MapPin size={28} className="text-[#111]" />
@@ -106,7 +106,7 @@ export default function Footer() {
 
             <li className="flex items-center gap-3 border-b-2 border-dashed border-[#e6e6e6] py-3">
               <Mail size={18} className="text-[#111]" />
-              yourmailaddress@gmail.com
+              hairsagaindia1@gmail.com
             </li>
           </ul>
         </div>

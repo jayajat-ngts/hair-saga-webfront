@@ -46,7 +46,7 @@ export default function Blogpage() {
     };
 
     return (
-        <main className="overflow-hidden pt-[160px] sm:pt-[170px] md:pt-[180px]">
+        <main className="overflow-hidden pt-[200px] sm:pt-[170px] md:pt-[180px]">
 
 
             {/* =================== HERO SECTION =================== */}
