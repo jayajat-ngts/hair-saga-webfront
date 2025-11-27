@@ -67,7 +67,7 @@ export default function Bookingpage() {
       };
 
       const res = await axios.post(
-        `${API_BASE_URL}api/bookNow`,
+        `${API_BASE_URL}api/booking/bookingNow`,
         payload,
         { headers: { "Content-Type": "application/json" } }
       );
