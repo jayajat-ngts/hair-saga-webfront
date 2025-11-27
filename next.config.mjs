@@ -8,15 +8,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.devtunnels.ms",
-      },
-      {
-        protocol: "http",
-        hostname: "localhost",
-        port: "4000",
+        hostname: "hairsaga-backend.onrender.com",
+        port: "",
+        pathname: "/uploads/**",
       },
     ],
   },
 };
 
 export default nextConfig;
+
