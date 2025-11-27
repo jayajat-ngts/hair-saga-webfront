@@ -48,7 +48,7 @@ export default function Contactpage() {
 
     try {
       const res = await axios.post(
-        `${API_BASE_URL}api/contact/contactUs`,   // FIXED
+        `${API_BASE_URL}/api/contact/contactUs`,   // FIXED
         formData,
         { headers: { "Content-Type": "application/json" } }
       );

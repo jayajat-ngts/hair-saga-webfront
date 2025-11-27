@@ -201,7 +201,7 @@ export default function Servicepage() {
     // Fetch services from backend
     const fetchServices = async () => {
         try {
-            const res = await axios.get(`${API}api/services`);
+            const res = await axios.get(`${API}/api/services`);
 
             if (Array.isArray(res?.data?.data)) {
                 setServices(res.data.data);
