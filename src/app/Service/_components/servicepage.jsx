@@ -304,7 +304,7 @@ export default function Servicepage() {
                                 >
                                     <div className="relative">
                                         <Image
-                                            src={`${API}uploads/services/${service.image}`}
+                                            src={`${API}/uploads/services/${service.image}`}
                                             alt={service.name}
                                             width={500}
                                             height={300}
