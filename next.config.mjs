@@ -10,11 +10,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "hairsaga-backend.onrender.com",
         port: "",
-        pathname: "/uploads/services**",
+        pathname: "/**",
       },
     ],
   },
-};
+};  
 
 export default nextConfig;
 
